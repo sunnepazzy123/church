@@ -9,7 +9,9 @@ dotenv.config()
 const path = require('path')
 
 //Middleware
-// app.use(morgan("dev"))
+if (process.env.NODE_ENV === 'development') {
+    app.use(morgan('dev'))
+  }
 
 //Use static asset file
 app.use(express.static(path.join(__dirname, 'public/')))
